@@ -50,13 +50,14 @@ At this point, I assume you already have docker installed on your machine, but, 
 
 ```json
 "scripts": {
-    "dev": "ts-node-dev src/index.ts",
-    "build": "tsc",
-    "start:build": "tsc && node dist/index.js",
-    "start": "node dist/index.js",
-    "lint": "eslint 'src/**/*.ts'",
-    "start:docker": "docker-compose up --build"
-  },
+  "dev": "ts-node-dev src/index.ts",
+  "build": "tsc",
+  "start:build": "tsc && node dist/index.js",
+  "start": "node dist/index.js",
+  "lint": "eslint 'src/**/*.ts'",
+  "start:docker": "docker-compose up --build",
+  "test": "jest"
+}
 ```
 
 ### Sample tests
