@@ -2,13 +2,14 @@ version: "3.9"
 
 services:
   apollo-back-server:
-    image: apollo-back-server
+    container_name: apollo-back-server
+    build:
+      context: ./
     ports:
-      - 8080:8080
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: example
-      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+      - "${APOLLO_PORT}:${APOLLO_PORT}"
+    env_file: .env
+    volumes:
+      - ./:/app
     depends_on:
       - mongo
     links:

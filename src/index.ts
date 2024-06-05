@@ -1,5 +1,8 @@
 import { ApolloServer, gql } from "apollo-server";
 import { helloWorld } from "./__graphql__/resolvers/hello";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 const typeDefs = gql`
   type Query {
@@ -7,7 +10,7 @@ const typeDefs = gql`
   }
 `;
 
-const server = new ApolloServer({
+export const server = new ApolloServer({
   typeDefs,
   resolvers: {
     Query: {
@@ -16,4 +19,6 @@ const server = new ApolloServer({
   },
 });
 
-server.listen().then(({ url }) => console.log(`Server ready at ${url}`));
+server
+  .listen(process.env.APOLLO_PORT)
+  .then(({ url }) => console.log(`Server ready at ${url}`));
