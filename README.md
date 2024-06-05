@@ -44,3 +44,17 @@ At this point, I assume you already have docker installed on your machine, but, 
     "start:docker": "docker-compose up --build"
   },
 ```
+
+### Sample tests
+
+I created a sample test to make sure your GraphQL connection is secured. You can call it by:
+
+```bash
+yarn test
+```
+
+or
+
+```bash
+yarn jest src/__tests__/e2e.spec.ts
+```
